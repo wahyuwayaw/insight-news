@@ -2,7 +2,7 @@ import ArtikelPageClient from "@/components/ArtikelPageClient";
 
 export async function generateStaticParams() {
   try {
-    const res = await fetch("http://127.0.0.1:8080/api/articles", {
+    const res = await fetch("https://news.wayaw.me/insight/api.php/api/articles", {
       next: { revalidate: 60 },
     });
     const data = await res.json();

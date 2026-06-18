@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "/insight/api.php/api";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://news.wayaw.me/insight/api.php/api";
 
 const catColors: Record<string, string> = {
   nasional: "bg-teal-600",
