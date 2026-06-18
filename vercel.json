@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "routes": [
-    { "src": "/artikel/([^/]+)/?", "dest": "/artikel/__placeholder__/index.html" }
+    { "handle": "filesystem" },
+    { "src": "/artikel/(.+)", "dest": "/artikel/__placeholder__/" },
+    { "src": "/(.*)", "dest": "/$1" }
   ]
 }
