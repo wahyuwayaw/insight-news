@@ -1,6 +1,7 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": true,
   "rewrites": [
-    { "source": "/artikel/:slug", "destination": "/artikel/__placeholder__" },
-    { "source": "/kategori/:slug", "destination": "/kategori/:slug" }
+    { "source": "/artikel/:slug/", "destination": "/artikel/__placeholder__/" }
   ]
 }
