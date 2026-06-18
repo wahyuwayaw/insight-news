@@ -1,26 +1,137 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@theme {
+  --color-teal-brand: #0E86A2;
+  --color-teal-brand-light: #11a8ca;
+  --color-teal-brand-dark: #0b6d85;
+  --color-orange-brand: #F7941D;
+  --color-orange-brand-light: #f9a83e;
+  --color-dark: #0F172A;
+  --color-dark-light: #1E293B;
+  --color-dark-muted: #334155;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #94a3b8;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html { 
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--color-surface-alt);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Ticker */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-wrap { overflow: hidden; }
+.ticker {
+  display: inline-flex;
+  animation: ticker 35s linear infinite;
+  white-space: nowrap;
+}
+.ticker:hover { animation-play-state: paused; }
+
+/* Article content — critical for rendering body text */
+.article-content {
+  color: #334155;
+  font-size: 15px;
+  line-height: 1.85;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.article-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.85;
+  color: #334155;
+}
+.article-content p:last-child { margin-bottom: 0; }
+.article-content ul, .article-content ol {
+  margin: 1rem 0 1.25rem;
+  padding-left: 1.5rem;
+}
+.article-content ul { list-style: disc; }
+.article-content ol { list-style: decimal; }
+.article-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.75;
+  color: #334155;
+}
+.article-content strong, .article-content b {
+  font-weight: 600;
+  color: #1e293b;
+}
+.article-content h2, .article-content h3 {
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+.article-content h2 { font-size: 1.25rem; }
+.article-content h3 { font-size: 1.1rem; }
+.article-content blockquote {
+  border-left: 3px solid #0E86A2;
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: #64748b;
+  font-style: italic;
+}
+
+/* Section dividers */
+.section-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.section-divider h2 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0f172a;
+  white-space: nowrap;
+}
+.section-divider .line {
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* Smooth transitions */
+a { transition: all 0.2s ease; }
+
+/* Safe area padding for mobile */
+@supports (padding: env(safe-area-inset-left)) {
+  .safe-area {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+  .article-content {
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .article-content p {
+    margin-bottom: 1rem;
+  }
 }
