@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/artikel/:slug", "destination": "/artikel/__placeholder__" },
+    { "source": "/kategori/:slug", "destination": "/kategori/:slug" }
+  ]
+}
