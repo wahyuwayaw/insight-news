@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
-  "rewrites": [
-    { "source": "/artikel/:slug/", "destination": "/artikel/__placeholder__/" }
+  "routes": [
+    { "src": "/artikel/([^/]+)/?", "dest": "/artikel/__placeholder__/index.html" }
   ]
 }
